@@ -1,0 +1,93 @@
+<?php
+$this->pageTitle = '资讯 - '.Yii::app()->name;
+?>
+<div class="ht_center_box">
+
+<script>
+function checkComment(){
+			ajaxBox('<?php echo $this->createUrl ( 'dynamic/create' )?>');
+}
+</script>
+<form id="delForm" action="<?php echo $this->createUrl('dynamic/delete');?>" method="post">
+    <input type="hidden" id="str" name="str"/>
+    <input type="hidden" value="<?php echo $_SERVER['REQUEST_URI']?>" name="url"/>
+</form>
+ <form id="searchForm" action="<?php echo $this->createUrl('Dynamic/admin');?>" method="GET">
+     <div class="content_width">
+        	<div class="content_width_title">
+            	<ul>
+            		<li>
+                    	<span>标题</span>
+                        <span><input name="Dynamic[title]" type="text" value="<?php echo isset($search['title'])?$search['title']:''?>" /></span>
+                    </li>
+                	<li style="float:right;margin:0px;"><a href="javascript:void(0);" onclick="deleteItem()">删除</a></li>
+                    <li style="float:right;"><a href="javascript:void(0);" onclick="checkComment();">添加</a></li> 
+                    <li style="float:right;"><a href="javascript:void(0);" onclick="searchForm();">搜索</a></li> 
+                </ul>
+            </div>
+          </div>
+  </form> 
+<div class="content_width_list">
+<?php $this->widget('zii.widgets.grid.CGridView', array(
+	'ajaxUpdate' => false,
+	'id'=>'Information-grid',
+	'itemsCssClass' => 'content_width_list',
+	'pager' => array(
+		'class'=>'LLinkPager',
+	),
+	'pagerCssClass' => 'pager',   //css 样式名
+	'enableSorting' => false,
+	'dataProvider'=>$model->search(),
+	'columns'=>array(
+		array(
+			'class'=>'CCheckBoxColumn',
+			'id'=>'sel',
+			'selectableRows' => 2,
+			'checkBoxHtmlOptions'=>array(
+			'name' => 'sel',
+			),
+		), 
+
+		 array( 
+              'name'=>'标题', 
+              'value'=>'mb_substr(htmlspecialchars_decode($data->title),0,12,"utf-8")', 
+		 ),
+		
+		 array( 
+              'name'=>'图片',
+		 	  'type' =>'raw',
+			  'value'=>'$data->info_img == "" ? "未上传" : "<a target=\'_blank\' href=\'$data->info_img\' >预览</a>"', 
+		 ),
+		 
+		array( 
+              'name'=>'发布时间', 
+              'value'=>'date ( "Y-m-d",$data->entry_time)', 
+         ), 
+         array( 
+              'name'=>'修改时间', 
+              'value'=>' $data->update_time == "" ? "无修改": date("Y-m-d",$data->update_time)', 
+         ),
+         array(
+			'name'	=>'修改人',
+			'value'	=>'$data->update_id == "" ? "无修改" : Manager::getManagerName($data->update_id)',
+		),
+		array(
+		'name' => '状态',
+		'type' => 'raw',
+		'value' => '$data->status == 1 ? CHtml::link("发布","javascript:void(0)",array(
+						"onclick" => "changeStatus(\"'.$this->createUrl('dynamic/changeAdmin',array('status'=>0)).'/id/$data->id\",$(this))",
+					)) : CHtml::link("未发布", "javascript:void(0)",array(
+						"onclick" => "changeStatus(\"'.$this->createUrl('dynamic/changeAdmin',array('status'=>1)).'/id/$data->id\",$(this))",
+					))',
+		),
+		array(
+		'name' => '修改',
+		'type'=>'raw',
+		'value'=>'CHtml::link("修改", "javascript:void(0)",array(
+				"onclick" => "ajaxBox(\"'.$this->createUrl('dynamic/update').'/id/$data->id\")",
+			))'
+		),
+	),
+)); ?>
+</div>
+</div>

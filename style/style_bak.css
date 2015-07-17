@@ -1,0 +1,42 @@
+@charset "utf-8";
+/* CSS Document */
+*{ margin:0px; padding:0px;font-family:"微软雅黑";}
+a{ text-decoration:none; font-family:"微软雅黑"; color:#000;}
+img{ border:none; }
+ul li{ list-style:none;}
+.clear{ margin:0px; padding:0px; height:0px; width:0px; line-height:0px; clear:both;}
+body{ background:#f9f9f9;font-size:12px;}
+
+.box{ width:100%;  margin:0px auto; overflow:hidden;}
+.top{width:100%;  height:40px; margin:0px auto; background:url(/images/top_bei.jpg)repeat-x left top;}
+.logo img{height:40px; margin-left:4.9%;}
+.top_bt{ width:50px; margin:0px auto;}
+.top_bt img{width:50px; }
+
+.bottom_bt{ width:50px; margin:0px auto; cursor:pointer;margin-top:10px;}
+.bottom_bt img{width:50px; }
+
+.bottom_bq{width:100%;  height:90px; margin:0px auto; background:url(/images/bottom_bei.jpg) repeat-x left top;}
+.bottom_bq p,.bottom_bq p a{width:100%; display:block; font-size:1em; color:#ccc; text-align:center; line-height:15px;}
+
+.xmjz_xx_title{ font-size:20px; color:#000; width:87.5%;margin:0 auto;margin-top:10px;font-weight:bold}
+.xmjz_xx_time{ font-size:11px; color:#8C8C8C; width:87.5%;margin:0 auto;margin-top:10px;line-height:16px}
+.xmjz_xx_text{font-size:1em; color:#000; width:87.5%; margin:10px auto;  }
+.xmjz_xx_text p{font-size:16px; color:#3E3E3E; line-height:1.5em; margin-top:10px; }
+.xmjz_xx_img{margin:20px auto; width:87.5%;}
+.xmjz_xx_img img,.xmjz_xx_text img{width:100%;}
+.xmjz_xx_link{margin:10px auto; width:87.5%;}
+.xmjz_xx_link a{color:#7a7a7a;font-size:0.875em}
+
+
+
+
+
+
+
+
+
+
+
+
+
