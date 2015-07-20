@@ -29,14 +29,14 @@ function checkMy(){
     <div class="ht_nav_box">
         <div class="ht_nav">
             	<ul>
-                    <li><a href="<?php echo $this->createUrl ( '/manager/admin' )?>"<?php echo $this->id == 'manager' || $this->id == 'wxcategory' ? 'class="nav_vtd"' : ''?>>系统</a></li>  
-                    <li><a href="<?php echo $this->createUrl ( '/srbac/authitem/frontpage' )?>"<?php echo $this->id == 'authitem' ? 'class="nav_vtd"' : ''?>>权限管理</a></li>
-                     <li><a href="<?php echo $this->createUrl ( '/group/admin' )?>"<?php echo $this->id == 'group' || $this->id == 'message' ? 'class="nav_vtd"' : ''?>>回复</a></li>
-                    <li><a href="<?php echo $this->createUrl ( '/menu/admin' )?>"<?php echo $this->id == 'menu' ? 'class="nav_vtd"' : ''?>>菜单</a></li>
-                    <li><a href="<?php echo $this->createUrl ( '/menu_msg/admin' )?>"<?php echo $this->id == 'menu_msg' ? 'class="nav_vtd"' : ''?>>素材</a></li>
-                    <li><a href="<?php echo $this->createUrl ( '/userMsg/admin' )?>"<?php echo $this->id == 'userMsg' ? 'class="nav_vtd"' : ''?>>消息</a></li>
-                    <li><a href="<?php echo $this->createUrl ( '/member/admin' )?>"<?php echo $this->id == 'member' ? 'class="nav_vtd"' : ''?>>会员</a></li>
-                    <li><a href="<?php echo $this->createUrl ( '/dynamic/admin' )?>"<?php echo $this->id == 'dynamic' ? 'class="nav_vtd"' : ''?>>新闻资讯</a></li>
+                    <li><a href="<?php echo $this->createUrl ( 'manager/admin' )?>"<?php echo $this->id == 'manager' || $this->id == 'wxcategory' ? 'class="nav_vtd"' : ''?>>系统</a></li>  
+                   <!--  <li><a href="<?php echo $this->createUrl ( '/srbac/authitem/frontpage' )?>"<?php echo $this->id == 'authitem' ? 'class="nav_vtd"' : ''?>>权限管理</a></li> -->
+                     <li><a href="<?php echo $this->createUrl ( 'group/admin' )?>"<?php echo $this->id == 'group' || $this->id == 'message' ? 'class="nav_vtd"' : ''?>>回复</a></li>
+                    <li><a href="<?php echo $this->createUrl ( 'menu/admin' )?>"<?php echo $this->id == 'menu' ? 'class="nav_vtd"' : ''?>>菜单</a></li>
+                    <li><a href="<?php echo $this->createUrl ( 'menu_msg/admin' )?>"<?php echo $this->id == 'menu_msg' ? 'class="nav_vtd"' : ''?>>素材</a></li>
+                    <li><a href="<?php echo $this->createUrl ( 'userMsg/admin' )?>"<?php echo $this->id == 'userMsg' ? 'class="nav_vtd"' : ''?>>消息</a></li>
+                    <li><a href="<?php echo $this->createUrl ( 'member/admin' )?>"<?php echo $this->id == 'member' ? 'class="nav_vtd"' : ''?>>会员</a></li>
+                    <li><a href="<?php echo $this->createUrl ( 'dynamic/admin' )?>"<?php echo $this->id == 'dynamic' ? 'class="nav_vtd"' : ''?>>新闻资讯</a></li>
                     <div class="clear"></div>
                 </ul>
             </div>
@@ -45,18 +45,18 @@ function checkMy(){
             <div class="childMenu">
         		<div class="childMenuList">
         		<?php if($this->id == 'manager' || $this->id == 'wxcategory'){?>
-        			<a href="<?php echo $this->createUrl ( '/manager/admin' )?>"<?php echo $this->id == 'manager' ? 'class="nav_vtd"' : ''?>>管理员</a>
-        			<a href="<?php echo $this->createUrl ( '/wxcategory/admin' )?>"<?php echo $this->id == 'wxcategory' ? 'class="nav_vtd"' : ''?>>分类</a>
+        			<a href="<?php echo $this->createUrl ( 'manager/admin' )?>"<?php echo $this->id == 'manager' ? 'class="nav_vtd"' : ''?>>管理员</a>
+        			<a href="<?php echo $this->createUrl ( 'wxcategory/admin' )?>"<?php echo $this->id == 'wxcategory' ? 'class="nav_vtd"' : ''?>>分类</a>
         		<?php }?>
         		<?php if($this->id == 'article' || $this->id == 'userinfo' || $this->id == 'scoreBack'){?>
-        		<a href="<?php echo $this->createUrl ( '/userinfo/admin' )?>"<?php echo $this->route == 'userinfo/admin' ? 'class="nav_vtd"' : ''?>>关键词回复</a>
-        			<a href="<?php echo $this->createUrl ( '/article/admin' )?>"<?php echo $this->route == 'article/admin' ? 'class="nav_vtd"' : ''?>>加关注回复</a>
-        			<a href="<?php echo $this->createUrl ( '/scoreBack/admin' )?>"<?php echo $this->route == 'scoreBack/admin' ? 'class="nav_vtd"' : ''?>>全部消息</a>
+        		<a href="<?php echo $this->createUrl ( 'userinfo/admin' )?>"<?php echo $this->route == 'userinfo/admin' ? 'class="nav_vtd"' : ''?>>关键词回复</a>
+        			<a href="<?php echo $this->createUrl ( 'article/admin' )?>"<?php echo $this->route == 'article/admin' ? 'class="nav_vtd"' : ''?>>加关注回复</a>
+        			<a href="<?php echo $this->createUrl ( 'scoreBack/admin' )?>"<?php echo $this->route == 'scoreBack/admin' ? 'class="nav_vtd"' : ''?>>全部消息</a>
         		<?php }?>
         		<?php if($this->id == 'qnaire' || $this->id == 'user_answer'){?>
-        			<a href="<?php echo $this->createUrl ( '/qnaire/admin' )?>"<?php echo $this->id == 'qnaire' ? 'class="nav_vtd"' : ''?>>收藏消息</a>
+        			<a href="<?php echo $this->createUrl ( 'qnaire/admin' )?>"<?php echo $this->id == 'qnaire' ? 'class="nav_vtd"' : ''?>>收藏消息</a>
         		<?php }?>
-                <?php if($this->id == 'authitem'){?>
+                <!-- <?php if($this->id == 'authitem'){?>
                          <div class="iconBox">
                             <?php echo SHtml::link(
                                     SHtml::image($this->module->getIconsPath().'/manageAuth.png',
@@ -86,7 +86,7 @@ function checkMy(){
                                         ""),
                                     array('authitem/assign'));?>
                             </div>
-                <?php }?>
+                <?php }?> -->
         		</div>
         	</div>
         </div>
