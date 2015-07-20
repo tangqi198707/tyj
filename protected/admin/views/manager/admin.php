@@ -14,15 +14,15 @@ function checkComment(){
             	<ul>
                 	<li>
                     	<span>用户名：</span>
-                        <span><input name="Manager[name]" type="text" value="<?php echo $search['name']?>" /></span>
+                        <span><input name="Manager[name]" type="text" value="<?php echo isset($search['name']) && $search['name']?>" /></span>
                     </li>
                 	<li>
                     	<span>邮箱：</span>
-                        <span><input name="Manager[email]" type="text" value="<?php echo $search['email']?>" /></span>
+                        <span><input name="Manager[email]" type="text" value="<?php echo isset($search['email']) && $search['email']?>" /></span>
                     </li>
                 	<li>
                     	<span>联系电话：</span>
-                        <span><input name="Manager[tel]" type="text" value="<?php echo $search['tel']?>" /></span>
+                        <span><input name="Manager[tel]" type="text" value="<?php echo isset($search['tel']) && $search['tel']?>" /></span>
                     </li>
                 	<li style="float:right;margin:0px;"><a href="javascript:void(0);" onclick="delManager('<?php echo $this->createUrl('manager/delete',$paramArr)?>')">删除</a></li>
                     <li style="float:right;"><a href="javascript:void(0);" onclick="checkComment();">添加</a></li> 

@@ -40,7 +40,7 @@ class Manager extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name, email,password, entry_time, entry_id, status', 'required'),
+			array('name, email,password, entry_time, entry_id, status, privileges', 'required'),
 			array('entry_time, update_time, status', 'numerical', 'integerOnly'=>true),
 			array('name', 'length', 'max'=>30),
 			array('email', 'length', 'max'=>50),
@@ -87,6 +87,7 @@ class Manager extends CActiveRecord
 			'entry_id' => '添加人',
 			'update_id' => '修改人',
 			'tel'=>'联系电话',
+			'privileges'=> '权限',
 			'status' => '审核',
 		);
 	}
@@ -108,6 +109,8 @@ class Manager extends CActiveRecord
 		
 		$criteria->compare('tel',trim($this->tel),true);
 
+		$criteria->compare('privileges',trim($this->privileges),true);
+
 		return new CActiveDataProvider('Manager', array(
 			'criteria'=>$criteria,
 			'pagination'=>array(
@@ -118,5 +121,11 @@ class Manager extends CActiveRecord
 				 'defaultOrder' => 'id desc',
 			)
 		));
+	}
+
+	public static function getPrivileges($id)
+	{
+		$manager = self::model()->findByPk($id);
+		return $manager->privileges;
 	}
 }

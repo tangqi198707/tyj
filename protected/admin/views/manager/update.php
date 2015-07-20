@@ -42,6 +42,12 @@ $this->pageTitle = '修改管理员 - '.Yii::app()->name;
     	<input name="Manager[tel]" type="text" id="tel" size="44" value="<?php echo $model->tel;?>" />
     </td>
   </tr>
+  <tr>
+    <td>权限：</td>
+    <td align="left">
+      <?php echo Privileges::getPrivileges($model->privileges,'Manager')?>
+    </td>
+  </tr>
 </table>
 
 <div class="twx_list_bt">

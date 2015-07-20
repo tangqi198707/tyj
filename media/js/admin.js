@@ -156,6 +156,9 @@ function AddManager(checkurl,checkur2)
 	}else if(email.val() && !rule_email.test($.trim(email.val()))){
 		alert('邮箱格式不正确!');
 		email.select();
+	}else if($('#privileges:checked').length<=0){
+		alert('请选择权限');
+		return false;
 	}else if (name.val()) {
 		$.get(checkurl, {
 			name : name.val()

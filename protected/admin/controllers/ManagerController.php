@@ -60,12 +60,15 @@ class ManagerController extends Controller
 
 		if(isset($_POST['Manager']))
 		{
+
 			$model->attributes = CHtml::encodeArray ( $_POST ['Manager'] );
 			$model->password	=	md5($_POST['Con_pwd']);
 			$id = Yii::app()->user->getState('adminId');
+			$privileges = implode(',',$_POST['Manager']['privileges']);
 			$model->status = 1;
 			$model->entry_id = $id;
 			$model->entry_time = time();
+			$model->privileges = $privileges;
 			if ($model->save ()) {
 				exit (CHtml::script ( "alert('添加成功!');location.href='" . $this->createUrl ( 'manager/admin' ) . "';" ));
 			} else {
@@ -89,6 +92,8 @@ class ManagerController extends Controller
 			$oldpwd = $model->password;
 			$model->attributes = CHtml::encodeArray ( $_POST ['Manager'] );
 			$id = Yii::app()->user->getState('adminId');
+			$privileges = implode(',',$_POST['Manager']['privileges']);
+			$model->privileges = $privileges;
 			$model->update_id = $id;
 			$model->update_time = time();
 			if ($_POST['password']) {
@@ -97,10 +102,14 @@ class ManagerController extends Controller
 				$model->password = $oldpwd;
 			}
 			if ($model->save ()) {
-				exit ( CHtml::script ( "alert('更新成功');location.href='" . $this->createUrl ( 'manager/admin', array ('id' => $_GET ['id'] ) ) . "';" ) );
+				if($id == $_GET['id'] && strpos($privileges,'system')===false){
+					exit ( CHtml::script ( "alert('更新成功');location.href='" . $this->createUrl ( 'site/login' ) . "';" ) );
+				}else{
+					exit ( CHtml::script ( "alert('更新成功');location.href='" . $this->createUrl ( 'manager/admin' ) . "';" ) );
+				}
+				
 			} else {
-				//print_r($model->errors);
-				exit ( "<script>alert('更新失败,请重试!')</script>" );
+				exit ( CHtml::script ( "alert('更新失败,请重试!');location.href='" . $this->createUrl ( 'manager/admin' ) . "';" ) );
 			}
 		}
 

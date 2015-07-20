@@ -39,6 +39,12 @@ $this->pageTitle = '添加管理员- '.Yii::app()->name;
     	<input name="Manager[tel]" type="text" id="tel" size="44" value=""/>
     </td>
   </tr>
+  <tr>
+    <td>权限：</td>
+    <td align="left">
+      <?php echo Privileges::getPrivileges('','Manager')?>
+    </td>
+  </tr>
 </table>
 <?php 
 $checkManagerUrl = $this->createUrl('manager/checkManagerName');
