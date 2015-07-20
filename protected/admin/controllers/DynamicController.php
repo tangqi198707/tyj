@@ -1,5 +1,5 @@
 <?php 
-class DynamicController extends CController{
+class DynamicController extends Controller{
 	
 	public $layout='adminLayout';
 	

@@ -1,5 +1,5 @@
 <?php 
-class MemberController extends CController{
+class MemberController extends Controller{
 	
 	public $layout='adminLayout';
 	
