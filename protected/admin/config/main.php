@@ -18,7 +18,7 @@ return array(
 	// autoloading model and component classes
 	'import'=>array(
 		'application.models.*',
-		'application.modules.srbac.controllers.SBaseController',
+		//'application.modules.srbac.controllers.SBaseController',
 		'application.components.*',
 		'application.extensions.*',
 		'application.components.phpmailer.*',
@@ -33,7 +33,7 @@ return array(
 			// If removed, Gii defaults to localhost only. Edit carefully to taste.
 			'ipFilters'=>array('127.0.0.1','::1'),
 		),
-		'srbac' => array(
+		/*'srbac' => array(
 			'userclass'=>'Manager', //default: User  对应用户的model
 	        'userid'=>'id', //default: userid   用户表标识位对应字段
 	        'username'=>'name', //default:username  用户表中用户名对应字段
@@ -59,7 +59,7 @@ return array(
 	        'showFooter'=>false, //可选,默认是false
 	        'alwaysAllowedPath'=>'srbac.components', //可选,默认是 srbac.components
 	                                   // 必须是一个存在的路径别名
-		),
+		),*/
 	),
 
 	// application components
@@ -80,13 +80,13 @@ return array(
 			'password' => 'admin',
 			'charset' => 'utf8',
 		),
-		'authManager'=>array(
+		/*'authManager'=>array(
             'class'=>'application.modules.srbac.components.SDbAuthManager',
             'connectionID'=>'db',
             'itemTable'=>'authitem',
 			'itemChildTable'=>'authitemchild',
 			'assignmentTable'=>'authassignment',
-        ),
+        ),*/
 		'errorHandler'=>array(
 			// use 'site/error' action to display errors
 			'errorAction'=>'site/error',
